@@ -5,7 +5,7 @@ TASKS = {
     "reasoning": [
         {
             "prompt": (
-                "A total of 20 students did the homework assignement. But only 7 did it correctly . "
+                "A total of 20 students did the homework assignment. But only 7 did it correctly . "
                 "How many students did the homework assignment incorrectly? Explain your reasoning briefly."
             ),
             "notes": "Classic trick question, answer is 13. Checks careful reading vs pattern-matching.",
@@ -36,7 +36,7 @@ TASKS = {
                 "    for n in nums:\n"
                 "        total =+ n\n"
                 "    return total / len(nums)\n\n"
-                "Find and fix the bug. Explain what was wrong."
+                "what is wrong and what should be the solution and why ? ."
             ),
             "notes": "Bug is `=+` instead of `+=`. Checks bug-spotting, not just code generation.",
         },
@@ -44,10 +44,10 @@ TASKS = {
     "math": [
         {
             "prompt": (
-                "If a train travels 60 miles in 45 minutes, what is its "
-                "speed in miles per hour? Show your work."
+                "what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it?"
+                " Show your work."
             ),
-            "notes": "Answer: 80 mph. Checks unit conversion + arithmetic.",
+            "notes": "Answer: function should be dx/dy basic diff function to perform in this context.",
         },
     ],
     "instruction_following": [

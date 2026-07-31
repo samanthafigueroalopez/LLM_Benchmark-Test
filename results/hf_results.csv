@@ -1,0 +1,3 @@
+model_id,prompt,load_seconds,inference_seconds,total_seconds
+EleutherAI/pythia-70m,Summarize briefly: The quick brown fox jumps over the lazy dog.,66.39,0.8,67.19
+Qwen/Qwen2.5-1.5B-Instruct,Summarize briefly: The quick brown fox jumps over the lazy dog.,15.92,19.21,35.13

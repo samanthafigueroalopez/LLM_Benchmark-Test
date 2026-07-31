@@ -1,4 +1,3 @@
-"""Download Hugging Face model repositories into the local cache."""
 from argparse import ArgumentParser
 from pathlib import Path
 from huggingface_hub import snapshot_download

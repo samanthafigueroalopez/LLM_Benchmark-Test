@@ -1,0 +1,13 @@
+model,category,prompt,inference_seconds,output_tokens
+phi4-mini-3.8b,reasoning,A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.,26.52,116
+phi4-mini-3.8b,coding,"Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",5.84,159
+phi4-mini-3.8b,math,what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.,21.03,592
+phi4-mini-3.8b,instruction_following,"Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",2.04,29
+phi4-14b,reasoning,A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.,75.04,100
+phi4-14b,coding,"Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",75.56,317
+phi4-14b,math,what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.,223.23,908
+phi4-14b,instruction_following,"Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",11.94,44
+deepseek-r1-distill-llama-8b,reasoning,A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.,72.46,380
+deepseek-r1-distill-llama-8b,coding,"Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",57.43,566
+deepseek-r1-distill-llama-8b,math,what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.,224.3,2196
+deepseek-r1-distill-llama-8b,instruction_following,"Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",35.04,357

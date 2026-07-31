@@ -1,0 +1,16 @@
+[
+  {
+    "model_id": "EleutherAI/pythia-70m",
+    "prompt": "Summarize briefly: The quick brown fox jumps over the lazy dog.",
+    "output": "Summarize briefly: The quick brown fox jumps over the lazy dog.\n\nThe first time I saw him, I was in the middle of a long, dark, dark, dark, dark, dark, dark, dark,",
+    "load_seconds": 66.39,
+    "inference_seconds": 0.8
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "Summarize briefly: The quick brown fox jumps over the lazy dog.",
+    "output": "Summarize briefly: The quick brown fox jumps over the lazy dog. This sentence is often used as a test of typing speed because it contains all 26 letters of the English alphabet, and many people find it difficult to type",
+    "load_seconds": 15.92,
+    "inference_seconds": 19.21
+  }
+]

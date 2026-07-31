@@ -1,12 +1,12 @@
 import json
 import time
 from pathlib import Path
- 
+import argparse
+
 import ollama
- 
+
 from benchmarking_llm import TASKS
-from models_figu import OLLAMA_MODELS
- 
+from models_figu import OLLAMA_MODELS, QUICK_OLLAMA_MODELS
 RESULTS_PATH = Path(__file__).parent / "results" / "ollama_results.json"
  
  
@@ -36,17 +36,20 @@ def run_single_task(model_tag: str, prompt: str) -> dict:
     }
  
  
-def run_all() -> dict:
+def run_all(quick: bool = False, models: dict[str, str] | None = None) -> dict:
     results = {}
+    models = models or OLLAMA_MODELS
  
-    for model_name, model_tag in OLLAMA_MODELS.items():
+    for model_name, model_tag in models.items():
         print(f"\n=== {model_name} ({model_tag}) ===")
         results[model_name] = {"tag": model_tag, "categories": {}}
  
         for category, tasks in TASKS.items():
             results[model_name]["categories"][category] = []
- 
-            for i, task in enumerate(tasks):
+
+            iter_tasks = tasks[:1] if quick else tasks
+
+            for i, task in enumerate(iter_tasks):
                 task_result = {
                     "base_prompt": task["prompt"],
                     "notes": task["notes"],
@@ -72,6 +75,36 @@ def save_results(results: dict):
     with open(RESULTS_PATH, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\nSaved results to {RESULTS_PATH}")
+    # Also save a CSV summary for quick comparison
+    csv_path = RESULTS_PATH.with_suffix('.csv')
+    try:
+        import csv
+
+        with open(csv_path, 'w', newline='', encoding='utf-8') as cf:
+            writer = csv.writer(cf)
+            writer.writerow(["model", "category", "prompt", "inference_seconds", "output_tokens"])
+            for model_name, data in results.items():
+                for category, tasks in data.get('categories', {}).items():
+                    for t in tasks:
+                        r = t.get('result', {})
+                        inf = r.get('elapsed_seconds') or r.get('inference_seconds') or ''
+                        out_tokens = r.get('output_tokens', '')
+                        writer.writerow([model_name, category, t.get('base_prompt'), inf, out_tokens])
+
+        print(f"Saved Ollama CSV summary to {csv_path}")
+        # Print small markdown table summary
+        print('\nOLLAMA SUMMARY:')
+        print('| Model | Category | Inference (s) | Output tokens |')
+        print('|---|---|---:|---:|')
+        for model_name, data in results.items():
+            for category, tasks in data.get('categories', {}).items():
+                for t in tasks:
+                    r = t.get('result', {})
+                    inf = r.get('elapsed_seconds') or r.get('inference_seconds') or ''
+                    out_tokens = r.get('output_tokens', '')
+                    print(f"| {model_name} | {category} | {inf} | {out_tokens} |")
+    except Exception as exc:
+        print(f"Could not write Ollama CSV summary: {exc}")
  
  
 def print_summary(results: dict):
@@ -97,7 +130,17 @@ def print_summary(results: dict):
  
  
 if __name__ == "__main__":
-    results = run_all()
+    parser = argparse.ArgumentParser(description="Run Ollama local benchmarks.")
+    parser.add_argument("--quick", action="store_true", help="Run quick benchmark (only first task per category)")
+    parser.add_argument("--small", action="store_true", help="Use a smaller, faster subset of Ollama models")
+    args = parser.parse_args()
+
+    if args.small:
+        models = QUICK_OLLAMA_MODELS
+    else:
+        models = OLLAMA_MODELS
+
+    results = run_all(quick=args.quick, models=models)
     save_results(results)
     print_summary(results)
  

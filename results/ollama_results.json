@@ -1,0 +1,161 @@
+{
+  "phi4-mini-3.8b": {
+    "tag": "phi4-mini",
+    "categories": {
+      "reasoning": [
+        {
+          "base_prompt": "A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.",
+          "notes": "Classic trick question, answer is 13. Checks careful reading vs pattern-matching.",
+          "result": {
+            "output": "To find out how many students completed their homework assignments incorrectly, we subtract those who got them right from all participants.\n\nThere are a total of:\n- 20 students\n- Out of these, 7 did it correctly\n\nTherefore,\nNumber of incorrect submissions = Total number - Correctly submitted entries \n= \\( 20 \\) (total numbers participating in the assignment)\n\\(-\\, 7\\,(correct answers)\\)\n\nSo,\n\n\\( Number\\, of\\, incorrectly\\, completed assignments = 13.\\)\n\nHence there were 13 students who did not complete their homework correctly.",
+            "elapsed_seconds": 26.52,
+            "tokens_per_sec": 33.44,
+            "output_tokens": 116
+          }
+        }
+      ],
+      "coding": [
+        {
+          "base_prompt": "Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",
+          "notes": "Checks correctness, edge-case handling, and code cleanliness.",
+          "result": {
+            "output": "Here's the implementation of the `is_palindrome` function along with an example call:\n\n```python\nimport re\n\ndef is_palindrome(s):\n    # Remove non-alphanumeric characters using regex and convert to lowercase\n    cleaned_s = re.sub(r'[^A-Za-z0-9]', '', s).lower()\n    \n    # Check if the cleaned string is equal to its reverse\n    return cleaned_s == cleaned_s[::-1]\n\n# Example call:\nexample_string = \"A man, a plan, a canal: Panama\"\nprint(is_palindrome(example_string))  # Output: True\n```\n\nThis function first cleans the input string by removing any non-alphanumeric characters and converting it to lowercase. Then it checks if this cleaned version of the string is equal to its reverse.",
+            "elapsed_seconds": 5.84,
+            "tokens_per_sec": 33.51,
+            "output_tokens": 159
+          }
+        }
+      ],
+      "math": [
+        {
+          "base_prompt": "what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.",
+          "notes": "Answer: function should be dx/dy basic diff function to perform in this context.",
+          "result": {
+            "output": "Major mathematical concepts in Differential Equations include:\n\n- **Order:** This refers to the highest derivative present in a given DE.\n  \n- **Linearity vs Nonlinearity**: Linear DEs are those that can be written with derivatives appearing linearly, meaning no powers or products of these terms exist other than 1. In contrast, nonlinear Differential Equations contain higher-order roots (like squares), exponents on the dependent variable(s) and its first derivative term(s).\n\n- **Homogeneity vs Nonhomogeneity**: Homogeneous DEs are those whose functions' degrees add up to zero when a function of independent variables is introduced as an argument.\n\nNon-homogeneous Differential Equations, also known as inhomogenous equations have another expression called the non-zero Right-Hand Side or forcing term. It contains terms that depend on time (t) and/or other parameters besides x.\n\n\n**Example:**\n\n\nConsider \\( y'' - 2y' + y = e^x \\). This equation is a second-order linear Non-homogeneous Differential Equation, with first derivative appearing linearly as well but its coefficient isn't zero. Thus the non-zero Right-Hand Side or forcing term here being \\(e^x\\).\n\n\nTo solve it we will do this:\n\n\nFirst find two solutions for the homogeneous counterpart of DE (that would be if RHS were 0):\n\n\n\\( y'' -2y' + y = 0 \\)\n\n\nWe can try a solution in exponential form:\n\n\\( y= Ae^{rt} \\) or \\( Aet\\), where r is some constant.\n\nNow replace it into our equation and solve for 'r':\n\n\n\n$$Ae^rt(r-1)+ Ae^{-t}-2Aet=-4At $$\n\n\nDividing both sides by At we get:\n\n\n$$e^rt (r^{(n)} - 3) =0$$ \n\n\nThen solving this quadratic gives us r values of \\(r= +sqrt{3}\\), and \\(- sqrt {3}\\)\n\n\nSo our solutions for the homogeneous equation would be:\n\n\\( y_1=A e^{-x+ix\\pi/2} ,y_2=Be^{(n)x-i(\\pi x)/2}+c.t.\\)\n\n\n\nNow we look to find a particular solution which in this case is \\(Aet=0\\) (as mentioned above). So adding it up with homogeneous solutions:\n\n\n\\( y=C1+ C2 e^{-x}\\)\n\n\nwhere c1 and c2 are constants of integration.\n\n\nThus the general integral for original DE would be:\n\n\n\n\n$$y(t)=C_1+C_ 2e^{ix t}+ Bte^(-t)+c.c.t.$$\n\n\n\nIn this case, we didn't have a forcing term (i.e., RHS was zero) hence there wasn't need to look beyond homogeneous solutions and thus C.C.T. can also be eliminated as well.\n\n\nI hope you find it useful!",
+            "elapsed_seconds": 21.03,
+            "tokens_per_sec": 34.89,
+            "output_tokens": 592
+          }
+        }
+      ],
+      "instruction_following": [
+        {
+          "base_prompt": "Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",
+          "notes": "Checks strict constraint-following (count + length limits).",
+          "result": {
+            "output": "- Unit tests quickly identify and isolate code defects.\n- They ensure each component functions independently correctly.\n- Improved confidence when refactoring legacy systems.",
+            "elapsed_seconds": 2.04,
+            "tokens_per_sec": 35.85,
+            "output_tokens": 29
+          }
+        }
+      ]
+    }
+  },
+  "phi4-14b": {
+    "tag": "phi4",
+    "categories": {
+      "reasoning": [
+        {
+          "base_prompt": "A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.",
+          "notes": "Classic trick question, answer is 13. Checks careful reading vs pattern-matching.",
+          "result": {
+            "output": "To find out how many students did the homework assignment incorrectly, you need to subtract the number of students who did it correctly from the total number of students who attempted it.\n\nHere's the calculation:\n\n- Total students who did the homework: 20\n- Students who did it correctly: 7\n\nNumber of students who did it incorrectly = Total students - Students who did it correctly  \n= 20 - 7  \n= 13\n\nTherefore, 13 students did the homework assignment incorrectly.",
+            "elapsed_seconds": 75.04,
+            "tokens_per_sec": 4.47,
+            "output_tokens": 100
+          }
+        }
+      ],
+      "coding": [
+        {
+          "base_prompt": "Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",
+          "notes": "Checks correctness, edge-case handling, and code cleanliness.",
+          "result": {
+            "output": "To determine whether a given string is a palindrome while ignoring case, spaces, and punctuation, we can follow these steps:\n\n1. Normalize the string by converting it to lowercase.\n2. Remove all non-alphanumeric characters (spaces and punctuation).\n3. Check if the cleaned-up string reads the same forwards and backwards.\n\nHere's how you can implement this in Python:\n\n```python\nimport re\n\ndef is_palindrome(s):\n    # Convert the string to lowercase\n    s = s.lower()\n    \n    # Use regular expressions to remove non-alphanumeric characters\n    cleaned_s = re.sub(r'[^a-z0-9]', '', s)\n    \n    # Check if the cleaned string is equal to its reverse\n    return cleaned_s == cleaned_s[::-1]\n\n# Example call:\nexample_string = \"A man, a plan, a canal: Panama\"\nprint(is_palindrome(example_string))  # Output: True\n```\n\n### Explanation:\n\n- **Lowercasing**: `s.lower()` ensures that the palindrome check is case-insensitive.\n- **Cleaning with Regular Expressions**: `re.sub(r'[^a-z0-9]', '', s)` removes all characters from the string except letters and numbers. This effectively ignores spaces and punctuation.\n- **Palindrome Check**: `cleaned_s == cleaned_s[::-1]` checks if the string reads the same forwards and backwards by comparing it to its reverse.\n\nThis function will return `True` for strings that are palindromes when ignoring case, spaces, and punctuation, as demonstrated with the example call.",
+            "elapsed_seconds": 75.56,
+            "tokens_per_sec": 4.34,
+            "output_tokens": 317
+          }
+        }
+      ],
+      "math": [
+        {
+          "base_prompt": "what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.",
+          "notes": "Answer: function should be dx/dy basic diff function to perform in this context.",
+          "result": {
+            "output": "Differential equations are mathematical equations that relate some function with its derivatives. They play a crucial role in modeling various physical, biological, economic, and engineering systems where change is involved. Here are some major concepts related to differential equations:\n\n1. **Order of the Differential Equation**: The order of a differential equation is determined by the highest derivative present in the equation.\n\n2. **Linearity**: A differential equation is linear if it can be written as a linear combination of the derivatives of the unknown function and the function itself, without any products or nonlinear functions (e.g., sine, exponential) of these terms. Otherwise, it is nonlinear.\n\n3. **Homogeneity**: A differential equation is homogeneous if all its terms involve the dependent variable or its derivatives. If there are terms that do not involve the dependent variable or its derivatives, the equation is nonhomogeneous.\n\n4. **Initial Value Problem (IVP) and Boundary Value Problem (BVP)**: An IVP specifies the value of the unknown function at a particular point, whereas a BVP specifies values at more than one point in the domain.\n\n5. **Existence and Uniqueness**: Theorems that provide conditions under which solutions exist and are unique for differential equations.\n\n6. **Separation of Variables**: A method to solve ordinary differential equations (ODEs) where variables can be separated on opposite sides of the equation.\n\n7. **Integrating Factor**: A technique used to solve first-order linear nonhomogeneous differential equations.\n\n8. **Characteristic Equation and Roots**: Used in solving linear homogeneous differential equations with constant coefficients by finding roots that lead to general solutions involving exponentials, sines, and cosines.\n\n9. **Laplace Transform and Inverse Laplace Transform**: Techniques for transforming a differential equation into an algebraic equation, which can then be solved more easily.\n\n### Example of Solving a Differential Equation\n\nLet's solve the following first-order linear ordinary differential equation using the method of integrating factors:\n\n\\[ \\frac{dy}{dx} + P(x)y = Q(x) \\]\n\n**Example**: Solve \\( \\frac{dy}{dx} + 2y = e^{3x} \\).\n\n#### Step-by-Step Solution:\n\n1. **Identify \\(P(x)\\) and \\(Q(x)\\):**\n\n   Here, \\(P(x) = 2\\) and \\(Q(x) = e^{3x}\\).\n\n2. **Find the Integrating Factor (IF):**\n\n   The integrating factor is given by:\n   \\[\n   \\mu(x) = e^{\\int P(x) \\, dx} = e^{\\int 2 \\, dx} = e^{2x}\n   \\]\n\n3. **Multiply through by the Integrating Factor:**\n\n   Multiply every term in the differential equation by \\(e^{2x}\\):\n   \\[\n   e^{2x} \\frac{dy}{dx} + 2e^{2x}y = e^{2x}e^{3x}\n   \\]\n\n   Simplifying, we get:\n   \\[\n   e^{2x} \\frac{dy}{dx} + 2e^{2x}y = e^{5x}\n   \\]\n\n4. **Recognize the Left Side as a Derivative:**\n\n   The left side is the derivative of \\(y \\cdot e^{2x}\\):\n   \\[\n   \\frac{d}{dx}(y \\cdot e^{2x}) = e^{5x}\n   \\]\n\n5. **Integrate Both Sides:**\n\n   Integrate with respect to \\(x\\):\n   \\[\n   \\int \\frac{d}{dx}(y \\cdot e^{2x}) \\, dx = \\int e^{5x} \\, dx\n   \\]\n\n   This gives:\n   \\[\n   y \\cdot e^{2x} = \\frac{1}{5}e^{5x} + C\n   \\]\n\n6. **Solve for \\(y\\):**\n\n   Divide through by \\(e^{2x}\\) to solve for \\(y\\):\n   \\[\n   y = \\frac{1}{5}e^{3x} + Ce^{-2x}\n   \\]\n\nHere, \\(C\\) is the constant of integration. This represents the general solution to the differential equation.\n\nThis process illustrates how to use an integrating factor to solve a first-order linear ordinary differential equation.",
+            "elapsed_seconds": 223.23,
+            "tokens_per_sec": 4.11,
+            "output_tokens": 908
+          }
+        }
+      ],
+      "instruction_following": [
+        {
+          "base_prompt": "Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",
+          "notes": "Checks strict constraint-following (count + length limits).",
+          "result": {
+            "output": "- Unit tests ensure code correctness by verifying individual components function as intended.\n- They facilitate refactoring and enhance confidence during code changes or enhancements.\n- Early detection of bugs reduces development time and improves software reliability over time.",
+            "elapsed_seconds": 11.94,
+            "tokens_per_sec": 5.0,
+            "output_tokens": 44
+          }
+        }
+      ]
+    }
+  },
+  "deepseek-r1-distill-llama-8b": {
+    "tag": "deepseek-r1:8b",
+    "categories": {
+      "reasoning": [
+        {
+          "base_prompt": "A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.",
+          "notes": "Classic trick question, answer is 13. Checks careful reading vs pattern-matching.",
+          "result": {
+            "output": "\nTotal number of students who submitted homework assignments: 20  \nNumber of students who completed correctly: 7  \n\nTo find the number who completed incorrectly, subtract the correct from the total:  \n20 - 7 = 13  \n\nThus, 13 students did the homework assignment incorrectly.",
+            "elapsed_seconds": 72.46,
+            "tokens_per_sec": 10.27,
+            "output_tokens": 380
+          }
+        }
+      ],
+      "coding": [
+        {
+          "base_prompt": "Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",
+          "notes": "Checks correctness, edge-case handling, and code cleanliness.",
+          "result": {
+            "output": "\nTo solve this problem, we need to determine if a given string is a palindrome while ignoring case, spaces, and punctuation. A palindrome reads the same forwards and backwards when considering only alphanumeric characters in lowercase.\n\n### Approach\nThe approach involves:\n1. **Cleaning the String**: Remove all non-alphanumeric characters from the string.\n2. **Case Normalization**: Convert all remaining characters to lowercase to ensure case-insensitivity.\n3. **Palindrome Check**: Compare the cleaned string with its reverse. If they are identical, the string is a palindrome.\n\nThe cleaning process can be efficiently done by filtering out non-alphanumeric characters and then converting each character to lowercase. This ensures that only relevant characters are considered for the palindrome check.\n\n### Solution Code\n```python\ndef is_palindrome(s):\n    cleaned = ''.join(filter(str.isalnum, s)).lower()\n    return cleaned == cleaned[::-1]\n\n# Example call:\nprint(is_palindrome(\"A man, a plan, a canal: Panama!\"))  # Output: True\n```\n\n### Explanation\n- **Cleaning the String**: The `filter(str.isalnum, s)` function filters out any characters that are not alphanumeric. This effectively removes spaces and punctuation.\n- **Case Normalization**: `.lower()` converts all cleaned characters to lowercase, making the check case-insensitive.\n- **Palindrome Check**: Comparing the cleaned string with its reverse (`cleaned[::-1]`) determines if it is a palindrome.\n\nThis approach efficiently processes the string by leveraging built-in functions for filtering and normalization, ensuring clarity and simplicity. The time complexity is O(n) where n is the length of the string, as we process each character once during cleaning and then compare the cleaned string with its reverse.",
+            "elapsed_seconds": 57.43,
+            "tokens_per_sec": 10.11,
+            "output_tokens": 566
+          }
+        }
+      ],
+      "math": [
+        {
+          "base_prompt": "what are the major math concepts of differential equations? Can you give an example of a differential equation and explain how to solve it? Show your work.",
+          "notes": "Answer: function should be dx/dy basic diff function to perform in this context.",
+          "result": {
+            "output": "\nOkay, let's break down the major concepts and then look at an example.\n\n## Major Mathematical Concepts of Differential Equations\n\nAt its core, a differential equation relates:\n\n1.  **The derivative (or derivatives) of a function** to:\n    *   The function itself (`y`)\n    *   The independent variable (`x`, `t`, etc.)\n    *   Other known functions or constants.\n\nIn essence: We're describing how something changes in terms of its current state and possibly other factors. This change is represented by derivatives (like slopes).\n\n### Key Concepts\n\n1.  **Order:** The highest order derivative present in the equation.\n    *   `dy/dt = t` is first-order because it involves one derivative (`y'`).\n    *   `d\u00b2y/dt\u00b2 + y = sin(t)` is second-order because it involves a second derivative (`y''`).\n\n2.  **Differential Equation vs. Solution:** A differential equation (DE) specifies the relationship involving derivatives and functions, but doesn't give an explicit function itself. The solution to a DE is a specific function `y(t)` (or `x(y)`, etc.) that satisfies this relationship for all defined values.\n\n3.  **Types:**\n    *   **Ordinary Differential Equations (ODEs):** Involve derivatives of functions with respect to *one* independent variable. Most common type.\n    *   **Partial Differential Equations (PDEs):** Involve partial derivatives of functions with more than one independent variable.\n\n4.  **Classification by Linearity:**\n    *   A DE is linear if the dependent variable `y` and its derivatives appear only to the power 1, not multiplied together, and coefficients depend only on the independent variable(s).\n        *   Example (linear): `d\u00b2y/dx\u00b2 + xy' = e^x y`\n        *   Example (non-linear): `(dy/dt)^2 = t`, or `sin(y) d\u00b2y/dt\u00b2 - cos(t)y = 0` (because of the sine and cosine functions applied directly to `y`).\n\n5.  **Separability:**\n    *   A common technique for solving certain ODEs is separation of variables. This allows us to rearrange the equation so that all instances of the dependent variable (`y`) are on one side, and all instances of the independent variable (`t`, etc.) plus any other terms not involving `dy/dx` or higher derivatives, are on the other side.\n    *   Example (separable): `(1/y) dy = t dt`\n        *   This is separable because we can write it as a function of `y` times its derivative (`dy`) equal to another function of `t`.\n\n6.  **Solutions:**\n    *   General Solution: Contains all possible solutions and includes arbitrary constants determined by initial conditions or boundary conditions.\n    (e.g., for `dy/dt = ky`, the general solution is `y(t) = C e^{kt}`).\n    *   Particular Solution: A specific instance of the general solution that satisfies given initial conditions.\n\n7.  **Integrating Factors:** Used to solve first-order linear differential equations by transforming them into exact derivatives, making integration straightforward.\n    *   Example (involves integrating factor): `dy/dt + P(t)y = Q(t)` - The integrating factor is often `e^\u222bP(t) dt`.\n\n8.  **Homogeneous vs. Non-Homogeneous:** For linear ODEs with constant coefficients (`d\u00b2y/dx\u00b2` or higher), we can distinguish between the equation being *homogeneous* (only involving `y` and its derivatives, no other terms like constants or functions of t) and non-homogeneous (includes extra terms).\n    *   Example: The equation `d\u00b2y/dt\u00b2 + y = 0` is homogeneous. `d\u00b2y/dt\u00b2 + y = sin(t)` is non-homogeneous.\n\n9.  **Initial Conditions:** These specify the value of the solution function and/or its derivatives at a specific point (usually t=0 or x=a). They allow us to find the particular solution from the general one.\n    *   Example: `y' = y` with initial condition `y(1) = 2`. The general solution is `y(t) = C e^t`, and using `y(1)=2` gives `C=2`.\n\n---\n\n## Example of a Differential Equation\n\nLet's consider one of the simplest types, which often demonstrates key concepts like separability and solutions.\n\n### Problem Statement\nSuppose we have a population growth model where the rate of change of a population `P(t)` (with respect to time `t`) is proportional to its current size. If we start with an initial population `P\u2080`, find the equation for the population at any later time, given that it grows at a rate constant `k`.\n\n### Differential Equation\nThe mathematical description is:\n`dP/dt = k P`\n\nThis is a first-order (only one derivative), ordinary differential equation. It's linear and separable.\n\n### Solving the Differential Equation\n\nWe want to find `P(t)`. We know that solving means finding an expression for `y` (here `P`) in terms of its independent variable (`t`). The solution will be a function `P(t)`.\n\n1.  **Separate Variables:**\n    Divide both sides by `P` and multiply by `dt`, grouping all the P's on one side and all the t's on the other.\n    `(dP/dt) / P = k`\n    This simplifies to:\n    `(1/P) dP = k dt`\n\n2.  **Integrate Both Sides:**\n    Now integrate both sides with respect to their respective variables (the left side is `\u222b(1/P)dP`, the right side is `\u222bkdt`).\n    \u222b(1/P) dP + C\u2081 = \u222bk dt + C\u2082\n    The integral of `(1/P)` with respect to P is `ln|P|`. We can write it as `ln(P)` if we assume `P > 0`, which makes sense for population.\n    The integral of `k` (a constant) with respect to t is `kt`.\n    So, combining the constants C\u2081 and C\u2082 into a single arbitrary constant C (and remembering that integrating requires adding a +C term), we get:\n    ln(P) = kt + C\n\n3.  **Solve for P:**\n    Exponentiate both sides to solve explicitly for P.\n    e^(ln(P)) = e^(kt + C)\n    This simplifies using the property of exponents `e^(a+b) = e^a * e^b` and knowing that `e^(ln(x)) = x`.\n    P(t) = e^(kt) * e^(C)\n\n4.  **Rewrite the Constant:**\n    The term `e^(C)` is just a constant (since C is an arbitrary constant). We can give it a new name, usually `K` or `A`, which represents its value.\n    P(t) = K * e^(kt)\n    This equation `P(t) = Ke^{kt}` is the general solution. It contains all possible solutions to the differential equation `dP/dt = kP`. The constant `K` can be any number depending on the initial conditions.\n\n### Applying Initial Conditions\n\nTo find a specific model for our population, let's assume we know the initial population at time `t=0`.\nLet P(0) = P\u2080 (the initial population).\n\nSubstitute this into the general solution:\nP\u2080 = K * e^(k*0)\ne^0 is 1.\nSo, P\u2080 = K * 1\nTherefore, K = P\u2080.\n\n### Particular Solution\n\nThe specific solution that fits our initial condition `P(0) = P\u2080` is then:\n**P(t) = P\u2080 * e^(kt)**\n\nThis means the population at any time t will be its initial size multiplied by an exponential growth factor. This particular form shows how the constant C (or K in this case) was determined from the initial condition.\n\n### Work Summary\n\n*   **DE:** `dP/dt = k P`\n*   **Separate Variables:** `(1/P) dP = k dt`\n*   **Integrate:** \u222b(1/P)dP = kt + C\u2081, so ln(P) = kt + C\u2081 (assuming P>0 and combining constants)\n*   **Solve for P:** P(t) = e^(kt + C\u2081) = e^(C\u2081) * e^(kt) => `y(t) = K e^{kt}`\n*   **Initial Condition (optional):** Find specific solution if known, like `P(0)=P\u2080` giving `K=P\u2080`.",
+            "elapsed_seconds": 224.3,
+            "tokens_per_sec": 9.91,
+            "output_tokens": 2196
+          }
+        }
+      ],
+      "instruction_following": [
+        {
+          "base_prompt": "Write exactly three bullet points (no more, no less) summarizing why unit tests are useful. Each bullet must be under 12 words.",
+          "notes": "Checks strict constraint-following (count + length limits).",
+          "result": {
+            "output": "\n*   Tests confirm code behaves as designed, validating functionality quickly.\n*   Failures pinpoint specific issues early, simplifying debugging and localization.\n*   Confident changes can be made; tests ensure refactoring or updates don't break existing logic.",
+            "elapsed_seconds": 35.04,
+            "tokens_per_sec": 10.83,
+            "output_tokens": 357
+          }
+        }
+      ]
+    }
+  }
+}
