@@ -1,3 +1,4 @@
+
 model,category,prompt,inference_seconds,output_tokens
 phi4-mini-3.8b,reasoning,A total of 20 students did the homework assignment. But only 7 did it correctly . How many students did the homework assignment incorrectly? Explain your reasoning briefly.,26.52,116
 phi4-mini-3.8b,coding,"Write a Python function `is_palindrome(s)` that returns True if a string is a palindrome, ignoring case, spaces, and punctuation. Include one example call.",5.84,159
